@@ -8,6 +8,7 @@ ENV PROJECTS_WS=/home/user/projects/shadow_robot
 
 ENV toolset_branch=F#SRC-1386_split_repo
 
+
 RUN echo "Running one-liner" && \
     apt-get update && \
     wget -O /tmp/oneliner "$( echo "$remote_shell_script" | sed 's/#/%23/g' )" && \

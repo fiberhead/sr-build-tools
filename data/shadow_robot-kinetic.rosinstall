@@ -34,6 +34,11 @@
     local-name: sr_visualization
 
 - git:
+    uri: https://github.com/shadow-robot/sr_visualization_common
+    version: F#SRC-1386_split_repo
+    local-name: sr_visualization_common
+
+- git:
     local-name: sr_teleop
     uri: https://github.com/shadow-robot/sr-teleop
     version: kinetic-devel
