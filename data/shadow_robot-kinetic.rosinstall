@@ -30,12 +30,12 @@
 
 - git:
     uri: https://github.com/shadow-robot/sr-visualization
-    version: F#SRC-1386_split_repo
+    version: kinetic-devel
     local-name: sr_visualization
 
 - git:
     uri: https://github.com/shadow-robot/sr_visualization_common
-    version: F#SRC-1386_split_repo
+    version: kinetic-devel
     local-name: sr_visualization_common
 
 - git:
