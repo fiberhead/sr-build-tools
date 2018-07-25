@@ -6,6 +6,8 @@ ENV remote_shell_script="https://raw.githubusercontent.com/shadow-robot/sr-build
 
 ENV PROJECTS_WS=/home/user/projects/shadow_robot
 
+ENV toolset_branch=F#SRC-1610_preseed_mongo_db
+
 RUN echo "Running one-liner" && \
     apt-get update && \
     wget -O /tmp/oneliner "$( echo "$remote_shell_script" | sed 's/#/%23/g' )" && \
@@ -15,6 +17,10 @@ RUN echo "Running one-liner" && \
     echo "Installing production tools" && \
     wget -O /tmp/production_tools https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$(echo $toolset_branch | sed 's/#/%23/g')/bin/install-production-tools.sh && \
     bash /tmp/production_tools -v "$ros_release_name" -b "$toolset_branch"  && \
+    \
+    echo "Presseding Mongodb" && \
+    wget -O /tmp/preseed_mongo https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$(echo $toolset_branch | sed 's/#/%23/g')/bin/install-production-tools.sh && \
+    bash /tmp/pressedmongo -v "$ros_release_name" -b "$toolset_branch" -h "e" && \
     \
     echo "Removing cache" && \
     apt-get clean && \
