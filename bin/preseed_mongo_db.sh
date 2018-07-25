@@ -41,12 +41,12 @@ esac
 
 
 echo "Downloading seed tarball"
-wget -O /tmp/presseed.tgz https://github.com/shadow-robot/sr-build-tools/raw/$(echo $BRANCH | sed 's/#/%23/g')/preeseed_default_mongodb_warehouse.tgz
+wget -O /tmp/preseed.tgz https://github.com/shadow-robot/sr-build-tools/raw/$(echo $BRANCH | sed 's/#/%23/g')/bin/preseed_default_warehouse_db.tgz
 
 echo "Unzipping"
 for location in $LOCATIONS; do
     pushd $location
     tar zxf /tmp/preseed.tgz 
-    chown -R $MY_USERNAME:$MY_USERNAME default_warehouse_db
+    chown -R $MY_USERNAME:$MY_USERNAME default_warehouse_mongo_db
     popd
 done
