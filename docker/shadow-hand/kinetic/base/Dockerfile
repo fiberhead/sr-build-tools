@@ -19,8 +19,8 @@ RUN echo "Running one-liner" && \
     bash /tmp/production_tools -v "$ros_release_name" -b "$toolset_branch"  && \
     \
     echo "Presseding Mongodb" && \
-    wget -O /tmp/preseed_mongo https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$(echo $toolset_branch | sed 's/#/%23/g')/bin/install-production-tools.sh && \
-    bash /tmp/pressedmongo -v "$ros_release_name" -b "$toolset_branch" -h "e" && \
+    wget -O /tmp/preseed_mongo https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$(echo $toolset_branch | sed 's/#/%23/g')/bin/preseed_mongo_db.sh && \
+    bash /tmp/preseed_mongo -v "$ros_release_name" -b "$toolset_branch" -h "e" && \
     \
     echo "Removing cache" && \
     apt-get clean && \

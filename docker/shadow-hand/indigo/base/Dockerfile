@@ -4,6 +4,8 @@ LABEL Description="This ROS Indigo image contains Shadow's dexterous hand softwa
 
 ENV remote_shell_script="https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$toolset_branch/bin/setup_dev_machine"
 
+ENV toolset_branch=F#SRC-1610_preseed_mongo_db
+
 RUN echo "Fixing file system" && \
     mkdir -p /etc/apt/sources.list.d && \
     rm -f /etc/apt/sources.list.d/ros-latest.list && \
@@ -16,6 +18,10 @@ RUN echo "Fixing file system" && \
     echo "Installing production tools" && \
     wget -O /tmp/production_tools https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$(echo $toolset_branch | sed 's/#/%23/g')/bin/install-production-tools.sh && \
     bash /tmp/production_tools -v "$ros_release_name" -b "$toolset_branch"  && \
+    \
+    echo "Presseding Mongodb" && \
+    wget -O /tmp/preseed_mongo https://raw.githubusercontent.com/shadow-robot/sr-build-tools/$(echo $toolset_branch | sed 's/#/%23/g')/bin/preseed_mongo_db.sh && \
+    bash /tmp/preseed_mongo -v "$ros_release_name" -b "$toolset_branch" -h "e" && \
     \
     echo "Removing cache" && \
     apt-get clean && \
