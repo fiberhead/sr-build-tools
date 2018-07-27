@@ -28,7 +28,7 @@ done
 
 case $HAND_TYPE in
     e|E)
-        LOCATIONS="/home/user/projects/shadow_robot/base_deps/src/universal_robot/ur10_moveit_config /home/user/projects/shadow_robot/base_deps/src/universal_robot/ur3_moveit_config /home/user/projects/shadow_robot/base_deps/src/universal_robot/ur5_moveit_config /home/user/projects/shadow_robot/base/src/sr_interface/sr_moveit_hand_config/ /home/user/projects/shadow_robot/base/src/sr_interface/sr_multi_moveit/sr_multi_moveit_config/ /home/user/projects/shadow_robot/base/src/sr_interface/sr_multi_moveit/sr_box_ur10_moveit_config/"
+        LOCATIONS="/home/user/projects/shadow_robot/base/src/sr_interface/sr_moveit_hand_config/ /home/user/projects/shadow_robot/base/src/sr_interface/sr_multi_moveit/sr_multi_moveit_config/"
         ;;
     h|H)
         LOCATIONS="locations"
